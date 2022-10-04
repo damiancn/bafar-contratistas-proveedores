@@ -1,0 +1,172 @@
+.modal-header {
+  border-bottom: 4px solid #067ca5;
+}
+
+#agenda-citas {
+  box-shadow: 0 5px 8px 0 rgb(0 0 0 / 0.3), 0 1px 8px 0 rgb(0 0 0 / 0.3);
+  padding: 0;
+  background-color: #FFF;
+  height: 100%;
+}
+
+#agenda-citas-header {
+  background-color: #067ca5 !important;
+  /* CENTRAR VERTICAL Y HORIZONTALMENTE */
+  /* display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: #FFF;
+  font-weight: bold;
+  font-size: 24PX; */
+  height: 15px;
+}
+
+#input-buscar-cita {
+  align-content: center;
+  padding-top: 10px;
+}
+
+#agenda-citas-left {
+  align-content: center;
+  border: 1px #000 solid;
+  height: 60px;
+  margin: 0 15px;
+}
+
+#agenda-citas-right {
+  align-content: center;
+  border: 1px #000 solid;
+  height: 60px;
+  margin: 0 15px;
+}
+
+#citas-left {
+  background-color: #f1f2f2;
+  
+  display: block;
+  height: auto;
+  padding: 8px 12px;
+  transition: 0.4s ease;
+  width: 100%;
+}
+
+#citas-left:hover {
+  background-color: rgb(72, 181, 190, .4);
+  cursor: pointer;
+}
+
+#citas-right {
+  background-color: #f1f2f2;
+  border-left: 5px #1c3660 solid;
+  padding: 15px 15px;
+}
+
+/* .border-citas {
+  border: 2px solid rgba(28, 54, 96);
+} */
+
+.fa-circle {
+  color: #5cb85c;
+}
+
+.sidebar-options {
+  display: flex;
+  width: 20px;
+  height: auto;
+  background-color: rgba(28, 54, 96);
+  transition: 0.4s ease;
+}
+
+.sidebar-options:hover {
+  width: 100px;
+}
+
+.sidebar-options:hover .citas-iconos {
+  display: inline-flex;
+}
+
+.sidebar-options:hover .menu-citas {
+  display: none;
+}
+
+.menu-citas {
+  align-self: center;
+  text-align: center;
+}
+
+.menu-citas img {
+  width: 20%;
+}
+
+.citas-iconos {
+  /* align-self: center; */
+  display: none;
+  text-align: center;
+  height: 100%;
+}
+
+.icons {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.img-editar {
+  background-image: url('../resources/Edit.svg');
+}
+
+.nombre-visitante span {
+  font-weight: 700;
+}
+
+/* .menu-cita {
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: 0.4s ease;
+} */
+
+/* .menu-cita:hover {
+  color: #FFF;
+  background-color:rgba(255, 255, 255, 0.8)
+} */
+
+.has-text-centered {
+  text-align: end;
+}
+
+.modal-header {
+  padding: .5rem 32px;
+}
+
+.modal-header-cancelar {
+  /* background-color: rgb(204,51,0); */
+  color: #FFFFFF;
+}
+
+.modal-header-cancelar h5 {
+  color: #FFFFFF;
+}
+
+.nueva-cita {
+  color: #1c3660;
+}
+
+/* .modal-header-informacion-cita {
+  background-color: #2aa737;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #FFFFFF;
+} */
+
+.link-black {
+  color: #000000;
+}
+
+.link-black:hover {
+  color: #000000;
+}
+
+::ng-deep .mat-form-field-underline {
+  display: none;
+}

@@ -3,7 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  SOCKET_ENDPOINT: `https://${window.location.hostname}:64900`,
+  URL_SERVICIOS: `https://localhost:64900`,
+
+  // IMAGES_STATIC: `https://localhost:64900/uploads/images`,
+  // IMAGES_EMPLOYEES: `https://localhost:64900/uploads/images/employees`,
+  // IMAGES_LABELS_TAG: `https://localhost:64900/uploads/images/tags`,
+  // PDF_FILES: `https://localhost:64900/uploads/pdfs`,
+
 };
 
 /*

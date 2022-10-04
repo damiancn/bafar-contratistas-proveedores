@@ -1,0 +1,25 @@
+.btn-agregar-nuevo {
+  background-color: #f1f2f2;
+  margin-left: -10px;
+  border-radius: 15% !important;
+  transition: background-color .2s;
+  border-color: rgb(28, 54, 96);
+}
+
+.btn-agregar-nuevo:hover {
+  background-color: rgb(6, 124, 165, 0.5);
+}
+
+.btn-agregar-nuevo b {
+  /* margin-left: -10px; */
+  /* border-radius: 30% !important; */
+  padding: 0 5px;
+}
+
+.info-visitante {
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #1c3660;
+}

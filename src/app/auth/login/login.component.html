@@ -1,0 +1,67 @@
+<div class="fondo">
+  <div class="row" >
+    <div class="col-md-8 my-auto">
+      <div class="row logo-seguridad-patrimonial text-center">
+        <div class="col-md-12">
+          <img class="logo img-fluid" src="assets/resources/Login/Logo.png" alt="">
+        </div>
+      </div>
+
+      <div class="row mb-2">
+        <div class="col-md-12 text-center">
+          <h2>Bienvenido</h2>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <form (ngSubmit)="onSubmit()" [formGroup]="loginFormGroup" id="form-logIn" ngNativeValidate>
+            <p>
+              <img class="svg-login" src="assets/resources/Login/User.svg" alt="">
+              <mat-form-field class="ps-3" appearance="legacy">
+                <mat-label class="text-login">Usuario</mat-label>
+                <input type="email" formControlName="usuario" matInput placeholder="" autocomplete="username">
+                <!-- <mat-hint>Hint</mat-hint> -->
+              </mat-form-field>
+            </p>
+
+            <p>
+              <img class="svg-login" src="assets/resources/Login/Candado.svg" alt="">
+              <mat-form-field class="ps-3" appearance="legacy">
+                <mat-label>Contraseña</mat-label>
+                <input type="password" formControlName="contrasena" matInput placeholder="" autocomplete="current-password">
+                <!-- <mat-hint>Hint</mat-hint> -->
+                <mat-hint align="end">
+                  <a routerLink="/forgotten-password">He olvidado mi contraseña?</a>
+                  
+                </mat-hint>
+              </mat-form-field>
+            </p>
+
+            <!-- <p>
+              <mat-label>Recordarme</mat-label>
+              <input class="filled-in chk-col-light-blue" type="checkbox" formControlName="remember">
+            </p> -->
+
+            <p>
+              <button class="btn btn-azul btn-md" [disabled]="!loginFormGroup.valid">
+                Log In
+              </button>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <div class="row text-center" style="margin-top: 20vh;">
+          <div class="col-md-12">
+            <img src="assets/resources/Sidon_Logo_Black.png" width="150" alt="">
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 d-none d-lg-block" style="padding: 0; position: relative;">
+      <img class="logo-lateral" src="assets/resources/Login/Lateral.png" style="width: 100%;" alt="">
+    </div>
+  </div>
+
+</div>

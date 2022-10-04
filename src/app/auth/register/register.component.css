@@ -1,0 +1,46 @@
+.container {
+  background-color: white;
+}
+
+.fondo {
+  background-color: white;
+  height: 100%;
+}
+
+.logo {
+  width: 30%;
+  margin-top: 15%;
+}
+
+.logo-lateral {
+  /* width: 100%; */
+  width: auto;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.svg-login {
+  width: 25px;
+}
+
+.text-center h2 {
+  margin-top: 5%;
+  font-weight: 500;
+}
+
+.mat-form-field {
+  width: 350px;
+}
+
+.mat-input-element {
+  caret-color: #1c3660;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #1c3660 !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #1c3660 !important;
+}

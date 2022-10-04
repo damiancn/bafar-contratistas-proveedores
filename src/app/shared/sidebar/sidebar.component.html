@@ -1,0 +1,145 @@
+<nav class="d-flex flex-column flex-shrink-0 pt-3 text-white bg-sidebar sidebar" id="sidebar" #sidebar>
+
+  <div class="profile-picture-center">
+    <a class="d-flex align-items-center mb-md-0 me-md-auto text-white text-decoration-none">
+      <div class="img-thumbnail profile-picture" alt="..."></div>
+    </a>
+    <i (click)="openTakePhotoProfileModal(takePhotoProfileModal, usuarioActivo[0])" class="fas fa-camera cambiar-foto"
+      title="Cambiar foto de perfil"></i>
+
+    <input #foto_perfil type="file" style="display:none" (change)="handle($event)">
+  </div>
+
+  <button class="fab" #fab (click)="agregarClaseActivo()" #sidebarCollapse id="sidebarCollapse"><i
+      class="fas fa-align-left"></i>
+    <!-- <img src="assets/resources/menu_open_FILL0_wght400_GRAD0_opsz48.png" alt="" width="24px" height="24px"> -->
+    <img src="assets/resources/menu-open.webp" alt="">
+  </button>
+
+  <span class="mt-2 fs-5" style="text-align: center;">{{usuarioActivo[0].nombre}}</span>
+
+  <br>
+
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="text-start">
+      <a [routerLink]="['./registro']" routerLinkActive="active" class="nav-link text-white">
+        <img class="mx-2" src="assets/resources/Agenda.svg" alt="" width="20px" height="20px">
+        Registro
+      </a>
+    </li>
+
+    <li class="text-start">
+      <a [routerLink]="['./consulta']" routerLinkActive="active"
+        class="nav-link text-white">
+        <img class="mx-2" src="assets/resources/Consultas_1.svg" alt="" width="20px" height="20px">
+        Consulta
+      </a>
+    </li>
+
+    <li class="text-start">
+      <a data-bs-toggle="collapse" data-bs-target="#menuCollapse" aria-expanded="false" aria-controls="menuCollapse"
+        routerLinkActive="active" class="nav-link text-white" href="#menuCollapse">
+        <img class="mx-2" src="assets/resources/engrane.svg" alt="" width="20px" height="20px">
+        Configuracion
+        <!-- <mat-icon>
+          <span class="material-symbols-sharp">
+            expand_more
+          </span>
+        </mat-icon> -->
+
+        <img src="assets/resources/expand-more.webp" alt="" width="24px">
+      </a>
+
+      <div class="collapse" id="menuCollapse">
+        <!-- <a routerLink='/dashboard/{{usuarioActivo[0].permisos}}/configuracion/' routerLinkActive="active"
+          class="nav-link text-white">
+
+          <img src="assets/resources/directions-walk.webp" alt="" width="24px">
+          Visitantes
+        </a>
+
+        <a routerLink='/dashboard/{{usuarioActivo[0].permisos}}/lgEmpleados/' routerLinkActive="active"
+          class="nav-link text-white">
+
+          <img src="assets/resources/manage-account.webp" alt="" width="24px">
+          Empleados
+        </a> -->
+      </div>
+    </li>
+
+    <hr>
+
+    <li class="text-start">
+      <a class="nav-link text-white" (click)="logout()" style="cursor: pointer;">
+        <img class="mx-2" src="assets/resources/Cerrar sesion.svg" alt="" width="20px" height="20px">
+        Cerrar sesión
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- * CAPTURAR QR MODAL -->
+<ng-template #takePhotoProfileModal>
+  <div class="modal-xxl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title col-11 text-center">Tomar foto de perfil</h5>
+        <!-- <i class="fas fa-times-circle fa-2x boton-cerrar-modal" (click)="modalRefTakePhotoProfile?.hide()"></i> -->
+        <i class="fas fa-times-circle fa-2x boton-cerrar-modal" (click)="closeTakePhotoProfileModal()"></i>
+      </div>
+
+      <div class="modal-body">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 my-auto">
+              <!-- <webcam class="webcam" [width]="300" [height]="300" [trigger]="triggerObservable"
+                (imageCapture)="handleImage($event)" *ngIf="showWebcam" [imageQuality]="1"
+                (cameraSwitched)="cameraWasSwitched($event)" (initError)="handleInitError($event)">
+              </webcam> -->
+            </div>
+
+            <div class="col-md-6">
+              <div class="snapshot">
+                <!-- <img [src]="webcamImage.imageAsDataUrl" [width]="300" [height]="300" alt="webcam image"> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="alert alert-danger" role="alert" *ngIf="error">
+                Ocurrió un error con la cámara web
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <!-- <button type="button" class="btn btn-bafar-invertido" (click)="modalRefTakePhotoProfile?.hide()">Cancelar</button>
+        <button type="button" class="btn btn-bafar-invertido" (click)="tomarFotoPerfil()">Tomar foto</button> -->
+        <div class="container">
+          <div class="row text-center">
+            <div class="col-md-4">
+              <button class="btn btn-bafar-invertido" (click)="toggleWebcam();">
+                Mostrar | Ocultar
+              </button>
+            </div>
+
+            <div class="col-md-4">
+              <button class="btn btn-bafar-invertido" (click)="triggerSnapshot();">
+                Capturar
+              </button>
+            </div>
+
+            <div class="col-md-4">
+              <button class="btn btn-bafar-invertido">
+                Guardar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,68 @@
+.container {
+  background-color: white;
+}
+
+.fondo {
+  background-color: white;
+  height: 100%;
+}
+
+.fondo > .row {
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.logo {
+  width: 350px;
+  margin-top: 15%;
+}
+
+.logo-lateral {
+  /* width: 100%; */
+  width: auto;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+
+.svg-login {
+  width: 25px;
+}
+
+.text-center h2 {
+  margin-top: 5%;
+  font-weight: 500;
+}
+
+.mat-form-field {
+  width: 350px;
+}
+
+.btn-azul {
+  width: 30%;
+}
+
+::ng-deep .mat-input-element {
+  caret-color: rgb(28, 54, 96);
+  border: none !important;
+}
+
+/* Quitar los border del matformfield */
+/* .ps-2 ::ng-deep .mat-form-field {
+  border: none !important;
+} */
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+  color: #1c3660 !important;
+}
+
+::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
+  background-color: #1c3660 !important;
+}
+
+
+.ps-3 ::ng-deep .mat-form-field-underline {
+  display: block !important;
+}
