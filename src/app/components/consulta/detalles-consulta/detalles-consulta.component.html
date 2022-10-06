@@ -1,0 +1,282 @@
+<div class="container">
+<p class="h3 text-white text-center mb-3 title-1">Datos generales</p>
+    <div class="row">
+      <div class="col-12">  
+        <div class="row">
+          <div class="col-12 main-cuadro-blanco-sombra">
+            
+            <form [formGroup]="filtrosF">
+              <!-- <ng-template #templateExample>Datos generales</ng-template> -->
+              <div class="container">
+                <div class="row">
+                  <div class="col-12 mb-6">
+                    <label class="form-label" for="empresa">Contratista / Proveedor:</label>
+                    <input aria-label="Empresa" class="form-control" id="empresa" name="empresa" formControlName="empresa"
+                      placeholder="Ecosat..." required>
+                  </div>
+                <!-- <div class="col-6"></div> -->
+                </div>
+  
+                <div class="row">
+                    <div class="col-12 mb-6">
+                      <label class="form-label" for="responsable">Responsable:</label>
+                      <input aria-label="Responsable" class="form-control" id="responsable" name="responsable"
+                        formControlName="responsable" placeholder="José Cruz..." required>
+                    </div>
+    
+                    <!-- <div class="col-6"></div> -->
+                  </div>
+
+                <div class="row">
+                  <div class="col-12 mb-3" >
+                    <label class="form-label" for="telefono">Telefono:</label>
+                    <input aria-label="Telefono" class="form-control" id="telefono" name="telefono"
+                      formControlName="telefono" placeholder="6141234567..." required>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 mb-3" >
+                      <label class="form-label" for="anfitrion">Contratante Bafar:</label>
+                      <input aria-label="Anfitrion" class="form-control" id="anfitrion" name="anfitrion"
+                        formControlName="anfitrion" placeholder="Salvador -Shava..." required>
+                    </div>
+                  </div>
+  
+                <hr>
+  
+                <div class="row">
+                  <div class="col-6 mb-3">
+                    <label class="form-label" for="noOrdenDeTrabajo">Orden de trabajo:</label>
+                    <input aria-label="Orden de Trabajo" class="form-control" id="noOrdenDeTrabajo"
+                      name="noOrdenDeTrabajo" formControlName="noOrdenDeTrabajo" placeholder="00010050..." required>
+                  </div>
+  
+                  <div class="col-6 mb-3">
+                    <label class="form-label" for="fechaDeRegistro">Fecha de registro:</label>
+                    <input aria-label="Fecha De Registro" class="form-control" id="fechaDeRegistro" name="fechaDeRegistro"
+                      formControlName="fechaDeRegistro" type="date" placeholder="Salvador -Shava..." required>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-6">
+                    <label class="form-label" for="areaDeTrabajo">Area de trabajo:</label>
+                    <input aria-label="Area De Trabajo" class="form-control" id="areaDeTrabajo" name="areaDeTrabajo"
+                      formControlName="areaDeTrabajo" placeholder="Patios..." required>
+                  </div>
+                </div>
+  
+                <hr>
+  
+                <div class="row">
+                  <label class="form-label" for="fechaInicioPeriodoDeServicio">Periodo de servicio:</label>
+                  <div class="col-6">
+                    De:
+                    <input aria-label="Fecha Inicio Periodo De Servicio" class="form-control"
+                      id="fechaInicioPeriodoDeServicio" name="fechaInicioPeriodoDeServicio"
+                      formControlName="fechaInicioPeriodoDeServicio" type="date" required
+                      min="{{fechaInicioPeriodoDeServicio}}">
+                  </div>
+  
+                  <div class="col-6">
+                    Hasta:
+                    <input aria-label="Fecha Fin Periodo De Servicio" class="form-control" id="fechaFinPeriodoDeServicio"
+                      name="fechaFinPeriodoDeServicio" formControlName="fechaFinPeriodoDeServicio" type="date" require
+                      min="{{fechaInicioPeriodoDeServicio}}">
+                  </div>
+                </div>
+  
+                <hr>
+              </div>
+  
+              <hr>
+              <!-- <div class="container"> -->
+  
+              <div class="row">
+                <div class="col-12">
+                  <p class="h3 text-white text-center rounded-3 mb-3 title-1">Evidencia</p>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-6 mb-3" style="text-align: start;">
+                        <label class="form-label" for="paymentPeriod">Periodo de pago (IMSS):</label>
+                        <input aria-label="Payment Period" class="form-control" id="paymentPeriod" name="paymentPeriod"
+                          formControlName="paymentPeriod" required type="date">
+                      </div>
+  
+                      <div class="col-6 mb-3" style="text-align: start;">
+                        <label class="form-label" for="appliedDate">Fecha de aplicación (IMSS):</label>
+                        <input aria-label="Applied Date" class="form-control" id="appliedDate" name="appliedDate"
+                          formControlName="appliedDate" required type="date">
+                      </div>
+                    </div>
+  
+  
+                    <div class="row">
+                      <div class="col-6" style="text-align: start;">
+                        <label class="form-label" for="validity">Vigencia (IMSS):</label>
+                        <input aria-label="Validity" class="form-control" id="validity" name="validity"
+                          formControlName="validity" required type="date" [readonly]="true">
+                      </div>
+                    </div>
+  
+                    <hr>
+  
+                    <div class="row">
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="pagoImssFile">Pago IMSS:</label>
+                        <div class="cuadro-blanco-sombra" role="button" title="Actualizar archivo de pago IMSS"
+                          (click)="pagoImssFileInput.click()">
+                          <img *ngIf="pdfPagoImssSrc?.length-1 < 0" [src]="imgContenedor"
+                            class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+                          <pdf-viewer *ngIf="pdfPagoImssSrc !== undefined" [src]="pdfPagoImssSrc" [render-text]="true"
+                            [original-size]="false" [fit-to-page]="true" [show-all]="true" [show-borders]="false"
+                            style="width: 100%; height: 200px; border-radius: 15px;"></pdf-viewer>
+                          <input #pagoImssFileInput aria-label="Pago Imss File" class="form-control d-none" type="file"
+                            id="pagoImssFile" name="pagoImssFile" formControlName="pagoImssFile"
+                            (change)="handlePagoImssFileInput($event)">
+                        </div>
+                      </div>
+  
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="altaImssFile">Alta IMSS:</label>
+                        <div class="cuadro-blanco-sombra" role="button" title="Actualizar archivo de alta IMSS"
+                          (click)="openAltaImssFile()">
+                          <input #altaImssFileInput aria-label="Pago Imss File" class="form-control d-none" type="file"
+                            id="altaImssFile" name="altaImssFile" formControlName="altaImssFile"
+                            (change)="handleAltaImssFileInput($event)">
+                          <img src={{imgContenedor}} class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+  
+                          <!-- <img [ngClass]="{anadir: imgAnadirDoc == 'assets/resources/Contenedor.svg'}" src={{imgAnadirDoc}}
+                              class="img-fluid" alt="" width="100px"> -->
+                        </div>
+                        <img src="{{altaImssPdfFileBase64}}" alt="">
+                      </div>
+  
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="permisoEspecialDeTrabajo">Permiso especial de trabajo:</label>
+                        <div class="cuadro-blanco-sombra" role="button"
+                          title="Actualizar archivo de permiso especial de trabajo"
+                          (click)="openPermisoEspecialDeTrabajoFile()">
+                          <input #permisoEspecialDeTrabajoFileInput aria-label="Permiso especial de trabajo"
+                            class="form-control d-none" type="file" id="permisoEspecialDeTrabajo"
+                            name="permisoEspecialDeTrabajo" formControlName="permisoEspecialDeTrabajo"
+                            (change)="handlePermisoEspecialDeTrabajoFile($event)">
+                          <img src={{imgContenedor}} class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+                        </div>
+                        <img src="{{pagoImssPdfFileBase64}}" alt="">
+                      </div>
+  
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="dc3">DC3:</label>
+                        <div class="cuadro-blanco-sombra" role="button" title="Actualizar archivo DC3"
+                          (click)="openDc3FileInput()">
+                          <input #dc3FileInput aria-label="DC3" class="form-control d-none" type="file" id="dc3"
+                            name="dc3" formControlName="dc3" (change)="handleDc3FileInput($event)">
+                          <img src={{imgContenedor}} class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+                        </div>
+                        <img src="{{pagoImssPdfFileBase64}}" alt="">
+                      </div>
+  
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="polizaResponsabilidadCivil">Póliza responsabilidad civil:</label>
+                        <div class="cuadro-blanco-sombra" role="button"
+                          title="Actualizar archivo de póliza de responsabilidad civil"
+                          (click)="openPolizaResponsabilidadCivilFileInput()">
+                          <input #polizaResponsabilidadCivilFileInput aria-label="Póliza de responsabilidad civil"
+                            class="form-control d-none" type="file" id="polizaResponsabilidadCivil"
+                            name="polizaResponsabilidadCivil" formControlName="polizaResponsabilidadCivil"
+                            (change)="handlePolizaResponsabilidadCivilFileInput($event)">
+                          <img src={{imgContenedor}} class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+                        </div>
+                      </div>
+  
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="listaDeTrabajadores">Lista de trabajadores:</label>
+                        <div class="cuadro-blanco-sombra" role="button"
+                          title="Actualizar archivo de lista de trabajadores"
+                          (click)="openListaDeTrabajadoresFileInput()">
+                          <input #listaDeTrabajadoresFileInput aria-label="Lista de trabajadores"
+                            class="form-control d-none" type="file" id="listaDeTrabajadores" name="listaDeTrabajadores"
+                            formControlName="listaDeTrabajadores" (change)="handleListaDeTrabajadoresFileInput($event)">
+                          <img src={{imgContenedor}} class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+                        </div>
+                      </div>
+  
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="archivoDeEvidencias">Archivo de evidencias:</label>
+                        <div class="cuadro-blanco-sombra" role="button" title="Actualizar archivo de evidencias"
+                          (click)="openArchivoDeEvidenciasFileInput()">
+                          <input #archivoDeEvidenciasFileInput aria-label="Archivo de evidencias"
+                            class="form-control d-none" type="file" id="archivoDeEvidencias" name="archivoDeEvidencias"
+                            formControlName="archivoDeEvidencias" (change)="handleArchivoDeEvidenciasFileInput($event)">
+                          <img src={{imgContenedor}} class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+                        </div>
+                      </div>
+  
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="formatoDeHerramienta">Formato de herramienta:</label>
+                        <div class="cuadro-blanco-sombra" role="button"
+                          title="Actualizar archivo de formato de herramienta"
+                          (click)="openFormatoDeHerramientaFileInput()">
+                          <input #formatoDeHerramientaFileInput aria-label="Archivo de formato de herramienta"
+                            class="form-control d-none" type="file" id="formatoDeHerramienta" name="formatoDeHerramienta"
+                            formControlName="formatoDeHerramienta" (change)="handleFormatoDeHerramientaFileInput($event)">
+                          <img src={{imgContenedor}} class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+                        </div>
+                      </div>
+                    </div>
+  
+                    <hr>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-12">
+                  <p class="h3 text-white text-center rounded-3 mb-3 title-1">Formatos</p>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-lg-4 col-md-6 col-xl-3 mb-3" style="text-align: center;">
+                        <label class="form-label" for="pagoImssFile">Pago IMSS:</label>
+                        <div class="cuadro-blanco-sombra" role="button" title="Actualizar archivo de pago IMSS"
+                          (click)="pagoImssFileInput.click()">
+                          <img *ngIf="pdfPagoImssSrc?.length-1 < 0" [src]="imgContenedor"
+                            class="img-fluid" alt="" width="125px" style="margin: 30px 0 30px 0">
+                          <pdf-viewer *ngIf="pdfPagoImssSrc !== undefined" [src]="pdfPagoImssSrc" [render-text]="true"
+                            [original-size]="false" [fit-to-page]="true" [show-all]="true" [show-borders]="false"
+                            style="width: 100%; height: 200px; border-radius: 15px;"></pdf-viewer>
+                          <input #pagoImssFileInput aria-label="Pago Imss File" class="form-control d-none" type="file"
+                            id="pagoImssFile" name="pagoImssFile" formControlName="pagoImssFile"
+                            (change)="handlePagoImssFileInput($event)">
+                        </div>
+                      </div>
+
+                    </div>                
+  
+                    <div class="row text-end">
+                      <div class="col-md-4 col-lg-4 col-xl-6"></div>
+                      <div class="col-md-8 col-lg-8 col-xl-6">
+                        <div class="row">
+                          <!-- <div class="col-4"></div> -->
+                          <div class="col-12">
+                            <div class="form-group">
+                              <button class="btn btn-azul" type="submit" (click)="onSubmit()">
+                                Guardar
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              <!-- </div> -->
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

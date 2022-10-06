@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   SOCKET_ENDPOINT: `https://${window.location.hostname}:64900`,
-  URL_SERVICIOS: `https://localhost:64900`,
+  // URL_SERVICIOS: `https://localhost:64900`,
+  URL_SERVICIOS: `http://192.168.10.11:64900`,
 
   // IMAGES_STATIC: `https://localhost:64900/uploads/images`,
   // IMAGES_EMPLOYEES: `https://localhost:64900/uploads/images/employees`,
