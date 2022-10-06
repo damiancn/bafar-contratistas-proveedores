@@ -50,7 +50,7 @@ export class ConsultaComponent implements OnInit {
 
 
   abrirDetalles(){
-    this.ventana.open(DetallesConsultaComponent,{disableClose:true,maxWidth: '100vw',}).afterClosed().subscribe(e =>{
+    this.ventana.open(DetallesConsultaComponent,{disableClose:true}).afterClosed().subscribe(e =>{
       if (e) {
         console.log(e);        
       }
